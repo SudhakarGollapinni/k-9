@@ -117,6 +117,7 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="okay_action">OK</string>
     <string name="cancel_action">Cancel</string>
     <string name="send_action">Send</string>
+    <string name="schedule_action">Send</string>
     <string name="send_again_action">Send Again</string>
     <string name="select_action">Select</string>
     <string name="deselect_action">Deselect</string>
@@ -1171,5 +1172,9 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="address_type_other">Other</string>
     <string name="address_type_mobile">Mobile</string>
     <string name="warn_search_disabled">Search in message bodies is disabled in this development version!</string>
+    <string name="title_activity_choose_date_time">ChooseDateTime</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

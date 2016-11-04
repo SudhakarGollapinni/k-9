@@ -15,6 +15,13 @@
         android:showAsAction="always"
     />
     <item
+        android:id="@+id/schedule"
+        android:alphabeticShortcut="t"
+        android:title="@string/schedule_action"
+        android:icon="?attr/iconActionSend"
+        android:showAsAction="always"
+        />
+    <item
         android:id="@+id/add_from_contacts"
         android:alphabeticShortcut="a"
         android:title="@string/add_from_contacts"

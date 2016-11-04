@@ -1142,6 +1142,29 @@ public class MessageCompose extends K9Activity implements OnClickListener,
         }
     }
 
+    private void onSchedule(){
+
+        onSave();
+
+        Intent intent = new Intent(this, ChooseDateTime.class);
+        Bundle bundle = new Bundle();
+        MimeMessage message;
+        try {
+            message = createDraftMessage();
+        } catch (MessagingException me) {
+            Log.e(K9.LOG_TAG, "Failed to create new message for send or save.", me);
+            throw new RuntimeException("Failed to create a new message for send or save.", me);
+        }
+        final MessagingController messagingController = MessagingController.getInstance(getApplication());
+        Message draftMessage = messagingController.saveDraft(mAccount, message, mDraftId);
+        mDraftId = messagingController.getId(draftMessage);
+        bundle.putLong("DraftId",mDraftId);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+
+    }
+
     private void onSend() {
 
         if (recipientPresenter.checkRecipientsOkForSending()) {
@@ -1323,7 +1346,7 @@ public class MessageCompose extends K9Activity implements OnClickListener,
 
     private void performSave() {
         saveIfNeeded();
-        finish();
+        //finish();
     }
 
     private void onReadReceipt() {
@@ -1775,6 +1798,9 @@ public class MessageCompose extends K9Activity implements OnClickListener,
                 } else {
                     onSave();
                 }
+                break;
+            case R.id.schedule:
+                onSchedule();
                 break;
             case R.id.discard:
                 askBeforeDiscard();
